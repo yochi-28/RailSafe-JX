@@ -1,0 +1,21 @@
+target/
+.idea/
+*.iml
+.vscode/
+.DS_Store
+.env
+.env.*
+*.log
+
+# Local embedded database files
+*.mv.db
+*.trace.db
+.railsafe-jx/
+
+# Local database credentials/configuration
+mysql.properties
+*.cnf
+
+# Native installer outputs and generated icons
+dist/
+packaging/icons/railsafe.icns

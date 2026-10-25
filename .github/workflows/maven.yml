@@ -1,0 +1,27 @@
+name: Maven CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Build and test (Java 21)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Java 21 with Maven cache
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Run tests and package
+        run: |
+          chmod +x ./mvnw
+          ./mvnw --batch-mode --no-transfer-progress clean verify
